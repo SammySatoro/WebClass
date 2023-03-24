@@ -1,0 +1,64 @@
+.battery
+{
+    display: flex;
+    justify-content: right;
+    max-width: 666px;
+    height: 66px;
+    margin-bottom: 10px;
+    border: 5px solid darkgray;
+    border-radius: 18px;
+
+}
+
+.plus{
+    content: '';
+    position: relative;
+    border-radius: 10px;
+    width: 10px;
+    height: 20px;
+    background: darkgray;
+    left: -6px;
+    top: -58px;
+  }
+
+.scale1
+{
+    border: 2px;
+    background-color: rgb(22, 255, 26);
+    border-radius: 0 10px 10px 0;
+    width: 75%;
+}
+
+.scale2
+{
+    border: 2px;
+    background-color: rgb(239, 136, 4);
+    border-radius: 0 10px 10px 0;
+    width: 50%;
+
+}
+
+.scale3
+{
+    border: 2px;
+    background-color: rgb(211, 34, 4);
+    border-radius: 0 10px 10px 0;
+    width: 10%;
+}
+
+.padding
+{
+    padding: 2px;
+}
+
+.container
+{
+    display: block;
+    flex-wrap: wrap;
+    padding-left: 25%;
+    justify-content: space-evenly;
+}
+
+
+
+
