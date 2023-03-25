@@ -1,5 +1,6 @@
-import {createTask1} from './tasks/task_1.js'
-import {createCalendar} from './tasks/task_2.js'
+import {createTask1} from './tasks/task_1.js';
+import {Calendar} from "./tasks/task_2.js";
+
 function toggleElement( element ) {
     if (element.style.display === 'none') {
         element.style.display = 'block';
@@ -37,7 +38,7 @@ function createTaskContainer(taskID, taskContentDiv, fieldStyle) {
 }
 
 
-let tasks_list = [createTask1(), createCalendar()]
+let tasks_list = [createTask1(), (new Calendar()).createCalendar()]
 
 function createGrid() {
     const grid_container = document.createElement("div")

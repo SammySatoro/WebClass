@@ -5,7 +5,7 @@
 }
 
 .weekend {
-    color: red;
+    color: #864141;
 }
 
 .day-label:hover {
@@ -19,6 +19,7 @@
     grid-template-columns: repeat(7,30px);
     grid-template-rows: repeat(6,30px);
     gap: 5px;
+    font-family: "JetBrains Mono",monospace;
 }
 .calendar-days{
     grid-area: days;
@@ -28,6 +29,7 @@
     grid-template-columns: repeat(7,30px);
     grid-template-rows: 30px;
     gap: 5px;
+    font-family: "JetBrains Mono",monospace;
 }
 .calendar-container{
     display: flex;
@@ -36,6 +38,20 @@
     justify-items: center;
 }
 
-.week-days {
+.bottom-header-container {
+    display: flex;
+    flex-direction: row;
+    gap: 70px;
+    width: -moz-available;
+    justify-content: center;
+    margin: 0 39% 0 39%;
+}
+
+.month-label {
+    font-family: "JetBrains Mono",monospace;
+    font-size: 25px;
+}
+
+.month-button {
 
 }

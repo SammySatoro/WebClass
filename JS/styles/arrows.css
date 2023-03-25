@@ -1,0 +1,16 @@
+.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+
+    width: 2px;
+    height: 2px;
+    padding: 15px;
+}
+
+.arrow-right {
+    transform: rotate(-45deg);
+}
+
+.arrow-left {
+    transform: rotate(135deg);
+}
