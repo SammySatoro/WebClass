@@ -1,3 +1,41 @@
+
+.day-label {
+    cursor: pointer;
+    color: black;
+}
+
 .weekend {
     color: red;
+}
+
+.day-label:hover {
+    text-decoration: underline;
+
+}
+
+.calendar-grid {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(7,30px);
+    grid-template-rows: repeat(6,30px);
+    gap: 5px;
+}
+.calendar-days{
+    grid-area: days;
+}
+.calendar-week{
+    display: grid;
+    grid-template-columns: repeat(7,30px);
+    grid-template-rows: 30px;
+    gap: 5px;
+}
+.calendar-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+.week-days {
+
 }
