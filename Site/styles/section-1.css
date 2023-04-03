@@ -91,6 +91,22 @@
     line-height: 1.6;
 }
 
+.description-block-right {
+    margin: -570px 53px 0 auto;
+}
+
+.image-left {
+    margin: -375px auto 0 0
+}
+
+.square-left {
+    margin: 53px auto 0 50px;
+}
+
+.block-title-left {
+    text-align: left;
+}
+
 .description-block-layout {
     position: relative;
     flex: 1;
