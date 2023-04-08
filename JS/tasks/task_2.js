@@ -5,9 +5,10 @@ class Calendar {
             "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
         this.weekdays = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
         const date = new Date();
-        this.date = new Date(date.getFullYear(), date.getMonth());
+        this.date = new Date(date.getFullYear(), date.getMonth(), date.getDate());
         this.currentMonth = date.getMonth()
         this.currentMonthDays = []
+        this.daysSkipped = 0
 
         // calendar container
         this.calendarContainer = document.createElement("div")
@@ -23,6 +24,12 @@ class Calendar {
         this.weekDays = document.createElement("div")
         this.weekDays.id = "week-days-id"
         this.weekDays.classList.add("calendar-week")
+
+        // year
+        this.yearContainer = document.createElement("div")
+        this.yearContainer.id = "year-container-id"
+        this.yearContainer.classList.add("year-container")
+        this.yearContainer.textContent = this.date.getFullYear()
 
         // bottom header
         this.bottomHeader = document.createElement("div")
@@ -65,6 +72,14 @@ class Calendar {
 
         for (let i = 0; i < this.currentMonthDays.length; i++) {
             this.calendarGrid.childNodes[i].textContent = this.currentMonthDays[i]
+            // if (this.calendarGrid.childNodes[i].textContent === this.date.getDate().toString()) {
+            //     console.log(this.currentMonthDays.length)
+            //     let node = this.calendarGrid.childNodes.item(this.currentMonthDays.length - this.daysSkipped - 2)
+            //     node.style.color = "red"
+            // } else {
+            //     node.style.color = "black"
+            // }
+
         }
         return this.calendarGrid
     }
@@ -72,14 +87,13 @@ class Calendar {
     getCurrentMonthDays() {
         this.currentMonthDays = []
         const days = this.getDaysForWeekday()
-
+        this.daysSkipped = 0
         for (let i = 0; i < days[0] - 1; i++) {
             this.currentMonthDays.push("")
+            this.daysSkipped++
         }
         for (let i = 1; i <= days.length; i++) {
             let dayLabel = i.toString()
-
-            // if (days[i] < 2) dayLabel.classList.add("weekend")
 
             this.currentMonthDays.push(dayLabel)
         }
@@ -90,6 +104,7 @@ class Calendar {
         dayLabel.id = `day-label-${id}`
         dayLabel.classList.add("day-label")
         dayLabel.textContent = ''
+
         return dayLabel
     }
 
@@ -119,10 +134,12 @@ class Calendar {
         if (this.currentMonth > 11) {
             this.currentMonth = 0
             this.date.setFullYear(this.date.getFullYear() + 1)
+            this.yearContainer.textContent = this.date.getFullYear()
         }
         if (this.currentMonth < 0) {
             this.currentMonth = 11
             this.date.setFullYear(this.date.getFullYear() - 1)
+            this.yearContainer.textContent = this.date.getFullYear()
         }
         this.date.setMonth(this.currentMonth)
     }
@@ -153,6 +170,7 @@ class Calendar {
 
     createCalendar() {
         this.fillCalendarGrid()
+        this.calendarContainer.appendChild(this.yearContainer)
         this.calendarContainer.appendChild(this.createBottomHeader())
         this.calendarContainer.appendChild(this.createWeekdayLabels())
         this.calendarContainer.appendChild(this.drawCalendar())

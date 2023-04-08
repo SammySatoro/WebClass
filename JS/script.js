@@ -1,5 +1,8 @@
 import {createTask1} from './tasks/task_1.js';
 import {Calendar} from "./tasks/task_2.js";
+import {createTask3} from "./tasks/task_3.js";
+import {createTask4} from "./tasks/task_4.js";
+
 
 function toggleElement( element ) {
     if (element.style.display === 'none') {
@@ -22,7 +25,7 @@ function createTaskContainer(taskID, taskContentDiv, fieldStyle) {
     taskButton.textContent = `Задание ${taskID}`;
 
     const taskField = document.createElement("div")
-    taskField.id = `task-filed-${taskID}`
+    taskField.id = `task-field-${taskID}`
     taskField.classList.add(fieldStyle === undefined ? "task-field" : `${fieldStyle}`)
     taskField.style.display = 'none'
 
@@ -38,7 +41,12 @@ function createTaskContainer(taskID, taskContentDiv, fieldStyle) {
 }
 
 
-let tasks_list = [createTask1(), (new Calendar()).createCalendar()]
+let tasks_list = [
+    createTask1(),
+    (new Calendar()).createCalendar(),
+    createTask3(),
+    createTask4()
+]
 
 function createGrid() {
     const grid_container = document.createElement("div")

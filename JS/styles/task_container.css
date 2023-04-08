@@ -1,4 +1,31 @@
 
-.task-container {
+.task3-container {
+    display: flex;
+    flex-direction: column;
+}
 
+.task4-grid-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.task4-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 50px);
+    grid-template-rows: repeat(5, 50px);
+    gap: 2px;
+    font-family: "JetBrains Mono", monospace;
+}
+
+.task4-cell {
+    background-color: #ffffff;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: #454545 solid;
+}
+
+.task4-cell-image {
+    background-image: url("../assets/circle-64.png");
 }

@@ -10,7 +10,6 @@
 
 .day-label:hover {
     text-decoration: underline;
-
 }
 
 .calendar-grid {
@@ -52,6 +51,6 @@
     font-size: 25px;
 }
 
-.month-button {
-
+.current-day {
+    color: #de0f0f;
 }
