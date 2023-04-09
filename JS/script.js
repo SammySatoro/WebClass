@@ -2,6 +2,7 @@ import {createTask1} from './tasks/task_1.js';
 import {Calendar} from "./tasks/task_2.js";
 import {createTask3} from "./tasks/task_3.js";
 import {createTask4} from "./tasks/task_4.js";
+import {createTask5} from "./tasks/task_5.js";
 
 
 function toggleElement( element ) {
@@ -45,7 +46,8 @@ let tasks_list = [
     createTask1(),
     (new Calendar()).createCalendar(),
     createTask3(),
-    createTask4()
+    createTask4(),
+    createTask5()
 ]
 
 function createGrid() {
