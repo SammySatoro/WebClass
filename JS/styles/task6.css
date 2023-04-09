@@ -1,0 +1,20 @@
+
+.task6-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.task6-square {
+    position: relative;
+    background-color: #91deb6;
+    height: 50px;
+    width: 50px;
+}
+
+.task6-field {
+    position: relative;
+    background-color: #faa4a4;
+    height: 300px;
+    width: 500px;
+}
