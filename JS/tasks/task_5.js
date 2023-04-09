@@ -4,10 +4,12 @@ const parentDiv = document.createElement('div');
 const showDialog = () => {
     continueAdding = !continueAdding
     dialog()
-    console.log(continueAdding)
 }
 
 const dialog = () => {
+
+    let block;
+
     // Цикл для добавления блоков в родительский элемент
     while (continueAdding) {
         // Запрашиваем содержимое блока у пользователя
@@ -20,29 +22,27 @@ const dialog = () => {
         }
 
         // Создаем новый блок и добавляем в него содержимое
-        const block = document.createElement('div');
+        block = document.createElement('div');
         block.textContent = blockContent;
 
         // Добавляем новый блок в родительский элемент
         parentDiv.appendChild(block);
+        continueAdding = false;
     }
 
-// Добавляем родительский элемент на страницу
-    document.body.appendChild(parentDiv);
+    if (block != null) {
+        // Добавляем обработчик клика на каждый блок
+        block.addEventListener('click', event => {
+            const block = event.target;
 
-// Добавляем обработчик клика на каждый блок
-    parentDiv.addEventListener('click', event => {
-        const block = event.target;
-
-        // Если кликнули на блок, запросим подтверждение удаления и удалить блок, если подтверждено
-        if (block.tagName === 'DIV') {
+            // Если кликнули на блок, запросим подтверждение удаления и удалить блок, если подтверждено
             const confirmDelete = confirm(`Вы уверены, что хотите удалить блок со следующим содержимым: ${block.textContent}?`);
             if (confirmDelete) {
                 console.log(`Блок со следующим содержимым был удален: ${block.textContent}`);
                 block.remove();
             }
-        }
-    });
+        });
+    }
 }
 
 export const createTask5 = () => {
