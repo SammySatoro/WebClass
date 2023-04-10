@@ -1,6 +1,7 @@
 .menu-container {
     position: relative;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -20,10 +21,10 @@
     background-color: #f2f2f2;
     border-radius: 10px;
     list-style-type: none;
-    margin: 0;
+    margin: 5px;
     padding: 0;
-    position: absolute;
-    top: 40px;
+    position: relative;
+    top: 5px;
     width: max-content;
 }
 
@@ -42,9 +43,9 @@
     background-color: #f2f2f2;
     border-radius: 10px;
     list-style-type: none;
-    margin: 0;
-    position: absolute;
-    top: 40px;
+    margin: 5px;
+    position: relative;
+    top: 5px;
     width: max-content;
     color: #333;
     cursor: pointer;

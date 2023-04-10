@@ -46,7 +46,7 @@ export const createTask7 = () => {
     menuContainer.appendChild(menuList);
 
 
-    const container = document.querySelector('div');
+    const container = document.createElement('div');
     container.appendChild(menuContainer);
 
     menuButton.addEventListener('click', () => {
