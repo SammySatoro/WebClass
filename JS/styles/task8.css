@@ -1,0 +1,50 @@
+.image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 0;
+    padding-bottom: 75%; /* 4:3 aspect ratio */
+}
+
+.image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-image: url("../assets/robot-1280.png");
+    background-color: #ffffff;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: none;
+    z-index: 1;
+}
+
+.image-container:hover img {
+    opacity: 0;
+    transition: none;
+}
+
+.image-container:hover .overlay-text {
+    opacity: 1;
+}
+
+.text-behind {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px #000000;
+    z-index: 0;
+}
