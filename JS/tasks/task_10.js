@@ -137,14 +137,12 @@ export const createTask9 = () => {
     aboutYouTextField.required = true;
 
 
-// Create submit button
     const button = document.createElement('button');
     button.setAttribute('type', 'submit');
-    button.classList.add('submit-button')
+    button.classList.add('show-task-button')
     button.textContent = 'Submit';
 
 
-// Добавляем все элементы в форму
     form.appendChild(nameInput);
     form.appendChild(emailInput);
     form.appendChild(passwordInput);
