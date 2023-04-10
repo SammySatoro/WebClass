@@ -157,6 +157,7 @@ export const createTask9 = () => {
 
     form.childNodes.forEach(child => {
         child.classList.add("task9-fields-margin")
+        child.classList.add("task9-font")
     })
 
     container.appendChild(form);

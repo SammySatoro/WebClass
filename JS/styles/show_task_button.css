@@ -11,7 +11,7 @@
     display: inline-flex;
     font-family: "JetBrains Mono",monospace;
     height: 48px;
-    width: -moz-available;
+    width: 100%;
     justify-content: center;
     line-height: 1;
     list-style: none;

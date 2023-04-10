@@ -1,6 +1,7 @@
 
 .task9-form-container {
-
+    justify-content: center;
+    display: flex;
 }
 
 .task9-form {
@@ -11,7 +12,6 @@
     flex-direction: column;
     background-color: #98b7bc;
     padding: 10px;
-    margin: 10px 160px 10px 160px;
 }
 
 .task9-form-gender {
@@ -28,7 +28,8 @@
 
 .task9-text-area {
     resize: none;
-    padding-right: 16px;
+    font-size: 14px;
+    padding-right: 0px;
     padding-bottom: 20px;
 }
 
@@ -44,4 +45,8 @@
 
 .task9-birth-date {
 
+}
+
+.task9-font {
+    font-family: "JetBrains Mono",monospace;
 }
