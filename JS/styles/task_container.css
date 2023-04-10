@@ -2,6 +2,30 @@
 .task3-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.task3-font-style {
+    font-family: "JetBrains Mono",monospace;
+    padding: 4px;
+    margin: 5px;
+    background-color: #aeaeae;
+    border-radius: 4px;
+    font-size: 20px;
+    color: #333;
+}
+
+.task3-font-ids {
+    font-family: "JetBrains Mono",monospace;
+    display: list-item;
+    width: max-content;
+    padding: 4px;
+    margin: 5px;
+    background-color: #f2f2f2;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
 }
 
 .task4-grid-container {
