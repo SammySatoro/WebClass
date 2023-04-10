@@ -1,0 +1,47 @@
+
+.task9-form-container {
+
+}
+
+.task9-form {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #98b7bc;
+    padding: 10px;
+    margin: 10px 160px 10px 160px;
+}
+
+.task9-form-gender {
+    padding-right: 130px;
+}
+
+.task9-form-lang {
+    padding-right: 23px;
+}
+
+.task9-fields-margin {
+    margin: 5px;
+}
+
+.task9-text-area {
+    resize: none;
+    padding-right: 16px;
+    padding-bottom: 20px;
+}
+
+.task9-input-phone {
+
+}
+
+.task9-birth-date-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.task9-birth-date {
+
+}
