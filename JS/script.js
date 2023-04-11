@@ -7,6 +7,8 @@ import {createTask6} from "./tasks/task_6.js";
 import {createTask7} from "./tasks/task_7.js";
 import {createTask8} from "./tasks/task_8.js";
 import {createTask9} from "./tasks/task_9.js";
+import {createTask10} from "./tasks/task_10.js";
+
 
 
 function toggleElement( element ) {
@@ -56,6 +58,7 @@ let tasks_list = [
     createTask7(),
     createTask8(),
     createTask9(),
+    createTask10(),
 ]
 
 function createGrid() {

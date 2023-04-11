@@ -71,6 +71,7 @@ export const createTask9 = () => {
 
     const dateInput = document.createElement('select')
     dateInput.classList.add("task9-birth-date")
+    dateInput.classList.add("task9-select-st")
     dateInput.style.width = '100%'
 
     const dateOptions = Array.from({length: 31}, (_, i) =>
@@ -81,6 +82,7 @@ export const createTask9 = () => {
 
     const monthInput = document.createElement('select')
     monthInput.classList.add("task9-birth-date")
+    monthInput.classList.add("task9-select-st")
 
     const monthOptions = Array.from({length: 12}, (_, i) =>
         ({ label: new Date(0, i).toLocaleString('default', { month: 'long' }), value: `month-${i + 1}` })
@@ -90,6 +92,7 @@ export const createTask9 = () => {
 
     const yearInput = document.createElement('select')
     yearInput.classList.add("task9-birth-date")
+    yearInput.classList.add("task9-select-st")
 
     const yearOptions = Array.from({length: 123}, (_, i) =>
         ({ label: `${new Date().getFullYear() + i - 123}`, value: `year-${new Date().getFullYear() + i - 123}` })
@@ -103,6 +106,7 @@ export const createTask9 = () => {
 
     const genderSelect = document.createElement("select");
     genderSelect.classList.add("task9-form-gender")
+    genderSelect.classList.add("task9-select-st")
     genderSelect.name = "gender";
     genderSelect.required = true;
 
@@ -116,6 +120,7 @@ export const createTask9 = () => {
 
     const languageSelect = document.createElement("select");
     languageSelect.classList.add("task9-form-lang")
+    languageSelect.classList.add("task9-select-st")
     languageSelect.name = "language";
     languageSelect.required = true;
 
