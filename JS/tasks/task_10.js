@@ -1,7 +1,8 @@
-const NAME_REGEX = /^([A-Z][a-z]*|[А-Я][а-я]*)/
+const NAME_REGEX = /^\w{1,18}/
 const EMAIL_REGEX = /^[\w+\-.]{2,30}@[a-z\d-]+(\.[a-z\d-]+)*\.[a-z]{1,4}$/i;
-const PHONE_REGEX = /^(\+7|8)?[\s.-]?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{2}[\s.-]?\d{2}$/
+const PHONE_REGEX = /^(\+7|8)[\s.-]?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{2}[\s.-]?\d{2}$/
 const PASSWORD_REGEX = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=.*[^\s]).{8,}$/
+const FACULTY_REGEX = /^[a-zA-Z0-9]+|[а-яА-Я0-9]+$/
 
 const addOptions = (options, selectObject) => {
     options.forEach(function(optionData) {
@@ -22,6 +23,8 @@ const validations = {
         confirmed: false,
         },
     phone: false,
+    faculty: false,
+    language: false
 }
 
 const validate = () => {
@@ -56,8 +59,19 @@ export const createTask10 = () => {
 
         if (NAME_REGEX.test(currentInput)) {
             validations.login = true
+            nameInput.classList.add("valid-field")
         } else {
             validations.login = false
+            nameInput.classList.remove("valid-field")
+        }
+
+        const valid = validate()
+        if (valid) {
+            button.disabled = false
+            button.classList.add('submit-button-activated')
+        } else {
+            button.disabled = true
+            button.classList.remove('submit-button-activated')
         }
     });
 
@@ -70,8 +84,19 @@ export const createTask10 = () => {
         let currentInput = emailInput.value;
         if (currentInput.match(EMAIL_REGEX)) {
             validations.email = true
+            emailInput.classList.add("valid-field")
         } else {
             validations.email = false
+            emailInput.classList.remove("valid-field")
+        }
+
+        const valid = validate()
+        if (valid) {
+            button.disabled = false
+            button.classList.add('submit-button-activated')
+        } else {
+            button.disabled = true
+            button.classList.remove('submit-button-activated')
         }
     });
 
@@ -114,8 +139,19 @@ export const createTask10 = () => {
 
         if (PASSWORD_REGEX.test(currentInput)) {
             validations.password.valid = true
+            passwordInput.classList.add("valid-field")
         } else {
             validations.password.valid = false
+            passwordInput.classList.remove("valid-field")
+        }
+
+        const valid = validate()
+        if (valid) {
+            button.disabled = false
+            button.classList.add('submit-button-activated')
+        } else {
+            button.disabled = true
+            button.classList.remove('submit-button-activated')
         }
     });
 
@@ -133,8 +169,20 @@ export const createTask10 = () => {
 
         if (currentInput === passwordInput.value) {
             validations.password.confirmed = true
+            passwordConfirmInput.classList.add("valid-field")
+            passwordConfirmInput.classList.remove("invalid-field")
         } else {
             validations.password.confirmed = false
+            passwordConfirmInput.classList.add("invalid-field")
+        }
+
+        const valid = validate()
+        if (valid) {
+            button.disabled = false
+            button.classList.add('submit-button-activated')
+        } else {
+            button.disabled = true
+            button.classList.remove('submit-button-activated')
         }
     });
 
@@ -149,10 +197,20 @@ export const createTask10 = () => {
 
         if (PHONE_REGEX.test(currentInput)) {
             validations.phone = true
+            phoneInput.classList.add("valid-field")
         } else {
             validations.phone = false
+            phoneInput.classList.remove("valid-field")
         }
-        console.log(validate())
+
+        const valid = validate()
+        if (valid) {
+            button.disabled = false
+            button.classList.add('submit-button-activated')
+        } else {
+            button.disabled = true
+            button.classList.remove('submit-button-activated')
+        }
     });
 
     const birthDateContainer = document.createElement('div')
@@ -195,10 +253,50 @@ export const createTask10 = () => {
     facultyInput.name = "faculty";
     facultyInput.placeholder = "Faculty";
 
+    facultyInput.addEventListener('input', ()=> {
+        let currentInput = facultyInput.value;
+
+        if (FACULTY_REGEX.test(currentInput)) {
+            validations.faculty = true
+            facultyInput.classList.add("valid-field")
+        } else {
+            validations.faculty = false
+            facultyInput.classList.remove("valid-field")
+        }
+
+        const valid = validate()
+        if (valid) {
+            button.disabled = false
+            button.classList.add('submit-button-activated')
+        } else {
+            button.disabled = true
+            button.classList.remove('submit-button-activated')
+        }
+    });
+
     const languageSelect = document.createElement("select");
     languageSelect.classList.add("task9-form-lang")
     languageSelect.classList.add("task9-select-st")
     languageSelect.name = "language";
+
+    languageSelect.addEventListener('input', ()=> {
+        let currentSelection = languageSelect.value
+
+        if (currentSelection) {
+            validations.language = true
+        } else {
+            validations.language = false
+        }
+
+        const valid = validate()
+        if (valid) {
+            button.disabled = false
+            button.classList.add('submit-button-activated')
+        } else {
+            button.disabled = true
+            button.classList.remove('submit-button-activated')
+        }
+    });
 
     const languageOptions = [
         { label: "Programming Language", value: "" },
@@ -212,11 +310,16 @@ export const createTask10 = () => {
 
 // Create submit button
     const button = document.createElement('button');
-    button.setAttribute('type', 'submit');
     button.classList.add('submit-button')
     button.disabled = true
     button.textContent = 'Submit';
 
+
+    button.addEventListener('click', event => {
+        event.preventDefault();
+        // Your code here
+
+    });
 
 // Добавляем все элементы в форму
     form.appendChild(nameInput);
