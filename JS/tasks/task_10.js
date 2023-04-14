@@ -282,11 +282,7 @@ export const createTask10 = () => {
     languageSelect.addEventListener('input', ()=> {
         let currentSelection = languageSelect.value
 
-        if (currentSelection) {
-            validations.language = true
-        } else {
-            validations.language = false
-        }
+        validations.language = !!currentSelection;
 
         const valid = validate()
         if (valid) {
