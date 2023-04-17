@@ -8,6 +8,7 @@ import {createTask7} from "./tasks/task_7.js";
 import {createTask8} from "./tasks/task_8.js";
 import {createTask9} from "./tasks/task_9.js";
 import {createTask10} from "./tasks/task_10.js";
+import {createTask11} from "./tasks/task_11.js";
 
 
 
@@ -59,6 +60,7 @@ let tasks_list = [
     createTask8(),
     createTask9(),
     createTask10(),
+    createTask11()
 ]
 
 function createGrid() {
