@@ -1,0 +1,180 @@
+
+.code-comparison-text-fields-container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.code-comparison-labels-container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.code-comparison-label {
+    display: grid;
+    position: relative;
+    justify-content: left;
+    width: 100%;
+    left: 10px;
+    font-size: 14px;
+    color: #36395A;
+    font-family: "JetBrains Mono", monospace;
+}
+
+.code-comparison-text-field-input {
+    width: 100%;
+    min-height: 60px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    overflow: hidden;
+    resize: none;
+}
+
+.code-comparison-text-field-input::placeholder {
+    font-weight: bold;
+    opacity: 0.5;
+    color: #36395A;
+}
+
+
+.code-comparison-compare-button {
+    background-color: #fff;
+    border: 0 solid #e2e8f0;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 3px;
+    box-sizing: border-box;
+    color: #0d172a;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Basier circle",-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1;
+    padding: 1rem 1.6rem;
+    text-align: center;
+    text-decoration: none #0d172a solid;
+    text-decoration-thickness: auto;
+    transition: all .1s cubic-bezier(.4, 0, .2, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+.code-comparison-compare-button:hover {
+    background-color: #1e293b;
+    color: #fff;
+}
+
+@media (min-width: 768px) {
+    .code-comparison-compare-button {
+        font-size: 1.125rem;
+        padding: 1rem 2rem;
+    }
+}
+
+
+.code-comparison-add-button-container {
+    position: relative;
+    justify-content: center;
+    width: 100%;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.code-comparison-delete-button-container {
+    position: relative;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.code-comparison-add-delete-button {
+    background-color: #fff;
+    border: 0 solid #e2e8f0;
+    border-radius: 50%;
+    margin: 3px;
+    box-sizing: border-box;
+    color: #0d172a;
+    cursor: pointer;
+    height: min-content;
+}
+
+.code-comparison-add-delete-button:hover {
+    background-color: #1e293b;
+    color: #fff;
+}
+
+.code-comparison-configuration-container {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    width: 100%;
+}
+
+.code-comparison-checkbox {
+    display: none;
+}
+
+.code-comparison-checkbox + label {
+    position: relative;
+    padding-left: 30px;
+    padding-right: 50px;
+    cursor: pointer;
+}
+
+.code-comparison-checkbox + label:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #36395A;
+    background-color: #fff;
+}
+
+.code-comparison-checkbox + label:after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    background-color: #36395A;
+    opacity: 0;
+}
+
+.code-comparison-checkbox:checked + label:after {
+    opacity: 1;
+}
+
+.code-comparison-information-field {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(3, 300px);
+    grid-template-rows: repeat(2, 30px);
+    column-gap: 100px;
+    row-gap: 10px;
+    padding: 15px 0 15px 15px;
+    border: 0 black solid;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.code-comparison-information {
+    display: flex;
+    flex-direction: row;
+    font-size: 15px;
+}
+

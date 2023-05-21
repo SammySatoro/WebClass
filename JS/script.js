@@ -9,7 +9,7 @@ import {createTask8} from "./tasks/task_8.js";
 import {createTask9} from "./tasks/task_9.js";
 import {createTask10} from "./tasks/task_10.js";
 import {createTask11} from "./tasks/task_11.js";
-
+import {CodeComparison} from "./tasks/CodeComparison/code_comparison.js";
 
 
 function toggleElement( element ) {
@@ -60,7 +60,8 @@ let tasks_list = [
     createTask8(),
     createTask9(),
     createTask10(),
-    createTask11()
+    createTask11(),
+    (new CodeComparison()).MainContainer
 ]
 
 function createGrid() {
