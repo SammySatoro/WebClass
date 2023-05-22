@@ -77,7 +77,6 @@ export class CodeComparisonCSS {
             if (p2) return `#*`;
             if (p3) return `@*`;
         });
-        console.log(code)
         return code
     }
 
