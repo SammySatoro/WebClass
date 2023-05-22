@@ -14,6 +14,13 @@ export class CodeComparison {
     #compareButton;
     #configurationContainer;
     #informationField;
+    #fileInput;
+    #textFieldSelection;
+    #fileInputContainer;
+    #textFieldSelector;
+    #selectedTextField;
+    #addTextButton;
+    #loadedText;
 
 
 
@@ -65,9 +72,75 @@ export class CodeComparison {
             },
         }
 
+        this.#textFieldSelection = {
+            leftJS: {
+                name: 'Left text field for JS',
+                field: this.#CodeCJS.leftTextFieldJS
+            },
+            rightJS: {
+                name: 'Right text field for JS',
+                field: this.#CodeCJS.rightTextFieldJS
+            },
+            leftHTML: {
+                name: 'Left text field for HTML',
+                field: this.#CodeCHTML.leftTextFieldHTML
+            },
+            rightHTML: {
+                name: 'Right text field for HTML',
+                field: this.#CodeCHTML.rightTextFieldHTML
+            },
+            leftCSS: {
+                name: 'Left text field for CSS',
+                field: this.#CodeCCSS.leftTextFieldCSS
+            },
+            rightCSS: {
+                name: 'Right text field for CSS',
+                field: this.#CodeCCSS.rightTextFieldCSS
+            },
+        }
+
+        this.#selectedTextField = this.#CodeCJS.leftTextFieldJS
+        this.#loadedText = ''
 
         this.#mainContainer = document.createElement('div')
 
+        this.#fileInputContainer = document.createElement("div");
+        this.#fileInputContainer.classList.add('code-comparison-file-input-container')
+
+        this.#fileInput = document.createElement("input");
+        this.#fileInput.classList.add('code-comparison-file-input')
+        this.#fileInput.type = 'file'
+        this.#fileInput.value = ''
+
+        this.#fileInput.addEventListener('change', async () => {
+            this.#loadedText = await this.#readFile(this.#fileInput)
+        });
+
+        this.#textFieldSelector = document.createElement("select");
+        this.#textFieldSelector.name = "textField";
+
+        const options = Object.values(this.#textFieldSelection).map(value => ({ name: value.name, field: value.field }));
+
+        this.#textFieldSelector.innerHTML = '';
+
+        options.forEach((option, index) => {
+            const newOption = document.createElement('option');
+            newOption.value = index.toString();
+            newOption.textContent = option.name.toString();
+            this.#textFieldSelector.appendChild(newOption);
+        });
+
+        this.#textFieldSelector.addEventListener('change', () => {
+            const selectedOption = options[this.#textFieldSelector.value];
+            this.#selectedTextField = selectedOption.field;
+        });
+
+        this.#addTextButton = document.createElement('button')
+        this.#addTextButton.classList.add('code-comparison-button')
+        this.#addTextButton.textContent = 'Add text'
+        this.#addTextButton.onclick = () => {
+            this.#selectedTextField.value = this.#loadedText
+        }
 
         this.#compareButton = document.createElement('button')
         this.#compareButton.classList.add('code-comparison-compare-button')
@@ -131,6 +204,7 @@ export class CodeComparison {
         this.#configurationContainer.classList.add('code-comparison-configuration-container')
     }
 
+
     #setUpObjects() {
 
         this.#CodeCJS.deleteButtonContainerJS.appendChild(this.#CodeCJS.deleteButtonJS)
@@ -152,6 +226,11 @@ export class CodeComparison {
         this.#mainContainer.appendChild(this.#CodeCJS.textFieldsContainerJS)
         this.#mainContainer.appendChild(this.#CodeCHTML.textFieldsContainerHTML)
         this.#mainContainer.appendChild(this.#CodeCCSS.textFieldsContainerCSS)
+        this.#fileInputContainer.appendChild(this.#fileInput)
+        this.#fileInputContainer.appendChild(this.#textFieldSelector)
+        this.#fileInputContainer.appendChild(this.#addTextButton)
+        this.#mainContainer.appendChild(this.#fileInputContainer)
+
 
         for (const [key, value] of Object.entries(this.#prepareCodeConfiguration)) {
             this.#createCheckbox(value)
@@ -289,8 +368,8 @@ export class CodeComparison {
         const cer = this.#calculateCER(code1, code2)
         const wer = this.#calculateWER(code1, code2)
 
-        charsSimilarity.value = ` ${!isNaN(cer) ? 100 - cer.toFixed(2) : 100}%`
-        wordsSimilarity.value = ` ${100 - wer.toFixed(2)}%`
+        charsSimilarity.value = ` ${!isNaN(cer) ? 100.0 - cer.toFixed(2) : 100}%`
+        wordsSimilarity.value = ` ${100.0 - wer.toFixed(2)}%`
     }
 
     #setInformation() {
@@ -301,8 +380,18 @@ export class CodeComparison {
 
         for (const [index, [key, value]] of Object.entries(this.#analysisResults).entries()) {
             analysisRes[index].textContent = value.value
-            console.log(value)
         }
-
     }
+    #readFile(fileInput) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.addEventListener('load', () => {
+                const text = reader.result;
+                resolve(text);
+            });
+            reader.addEventListener('error', reject);
+            reader.readAsText(fileInput.files[0]);
+        });
+    }
+
 }

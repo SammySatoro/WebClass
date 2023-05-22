@@ -37,7 +37,6 @@ export const createTask8 = () => {
 
     window.addEventListener('resize', () => {
         container.style.height = container.width * 3 / 4 + 'px'
-        console.log(container.style.height)
     })
 
     image.addEventListener('mouseout', ()=>fadeOutImage(image));
